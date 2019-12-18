@@ -8,4 +8,4 @@ import register from './src/register';
 import test from './src/components/registration/test';
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => test);
+AppRegistry.registerComponent(appName, () => register);
