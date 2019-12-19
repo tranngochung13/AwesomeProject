@@ -10,6 +10,7 @@ import {
   TouchableNativeFeedback,
   SafeAreaView,
 } from 'react-native';
+import User from './components/registration/User';
 
 class register extends Component {
   constructor(props) {
@@ -45,12 +46,6 @@ class register extends Component {
       confirmPassword,
     } = this.state;
     const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    // Validation user
-    if (user === '') {
-      this.setState({userError: 'You need type user'});
-    } else {
-      this.setState({userError: ''});
-    }
     // Validation email
     if (email === '') {
       this.setState({emailError: 'You need type email'});
@@ -131,16 +126,7 @@ class register extends Component {
             <View style={{flex: 0.5}} />
           </View>
 
-          <View style={styles.borders}>
-            <Text style={styles.text}>Name of user*</Text>
-          </View>
-          <TextInput
-            style={styles.input}
-            placeholder="User"
-            onChangeText={val => this.onChangeText('user', val)}>
-            {this.state.user}
-          </TextInput>
-          <Text style={styles.textError}>{this.state.userError}</Text>
+          <User />
 
           <View style={styles.borders}>
             <Text style={styles.text}>Email*</Text>

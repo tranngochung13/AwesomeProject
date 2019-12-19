@@ -1,18 +1,43 @@
 import React, {Component} from 'react';
 import B from '../B';
 import A from '../A';
-import C from '../C';
-import {View, Text} from 'react-native';
-import users from './users';
+import {View} from 'react-native';
+import User from './User';
+import Form from './Form';
 
-export default class test extends Component {
+export default class Test extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: '',
+      email: '',
+      phoneNumber: '',
+      username: '',
+      password: '',
+      confirmPassword: '',
+
+      userError: '',
+      emailError: '',
+      phoneNumberError: '',
+      usernameError: '',
+      passwordError: '',
+      confirmPasswordError: '',
+    };
+  }
   render() {
     return (
-      <View>
-        <B onSendData={this.onReceiveData} />
-        <A />
-        <users />
-      </View>
+      <>
+        <Form
+          labelName="Name of user*"
+          placeHolder="User"
+          onChangeText={val => this.onChangeText('user', val)}
+        />
+        <Form
+          labelName="Email*"
+          placeHolder="Email"
+          onChangeText={val => this.onChangeText('email', val)}
+        />
+      </>
     );
   }
 }
