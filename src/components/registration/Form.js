@@ -1,12 +1,19 @@
 import React, {Component} from 'react';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
-
 export default class Form extends Component {
-  onChangeText = (key, val) => {
-    this.setState({[key]: val});
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: props.value,
+      hidden: false,
+    };
+  }
+  getData = input => {
+    this.props.getData(input);
   };
+
   render() {
-    const {value, labelName, placeHolder, changeText, valueError} = this.props;
+    const {labelName, placeHolder, valueError} = this.props;
     return (
       <>
         <View style={styles.borders}>
@@ -15,10 +22,13 @@ export default class Form extends Component {
         <TextInput
           style={styles.input}
           placeholder={placeHolder ? placeHolder : ''}
-          onChangeText={val => this.onChangeText(changeText, val)}>
-          {value && value}
-        </TextInput>
-        <Text style={styles.textError}>{valueError ? valueError : ''}</Text>
+          onChangeText={val => this.getData(val)}
+          value={this.state.value}
+          secureTextEntry={this.state.hidden}
+        />
+        <View>
+          <Text style={styles.textError}>{valueError}</Text>
+        </View>
       </>
     );
   }
