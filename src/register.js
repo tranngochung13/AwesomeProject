@@ -154,6 +154,9 @@ class register extends Component {
             ref={input => {
               this.userTextInput = input;
             }}
+            onSubmitEditing={() => {
+              this.usernameTextInput.focus();
+            }}
             onChangeText={val => this.onChangeText('phoneNumber', val)}>
             {this.state.phoneNumber}
           </TextInput>
@@ -165,6 +168,9 @@ class register extends Component {
           <View>
             <TextInput
               style={styles.input}
+              ref={input => {
+              this.usernameTextInput = input;
+            }}
               placeholder="Username"
               onChangeText={val => this.onChangeText('username', val)}>
               {this.state.username}

@@ -13,7 +13,7 @@ export default class Form extends Component {
   };
 
   render() {
-    const {labelName, placeHolder, valueError} = this.props;
+    const {labelName, placeHolder, valueError, isSecure} = this.props;
     return (
       <>
         <View style={styles.borders}>
@@ -24,7 +24,7 @@ export default class Form extends Component {
           placeholder={placeHolder ? placeHolder : ''}
           onChangeText={val => this.getData(val)}
           value={this.state.value}
-          secureTextEntry={this.state.hidden}
+          secureTextEntry={isSecure ? isSecure : false}
         />
         <View>
           <Text style={styles.textError}>{valueError}</Text>

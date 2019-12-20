@@ -163,13 +163,14 @@ export default class Test extends Component {
               placeHolder="****************"
               getData={val => this.onChangeText('password', val)}
               valueError={this.state.passwordError}
+              isSecure={true}
             />
             <Form
               labelName="Confirm password*"
               placeHolder="****************"
               getData={val => this.onChangeText('confirmPassword', val)}
               valueError={this.state.confirmPasswordError}
-              secureTextEntry={true}
+              isSecure={true}
             />
             <View style={styles.buttonSubmit}>
               <Submit submit={this.onPress} labelSubmit="Register" />
