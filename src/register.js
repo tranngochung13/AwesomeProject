@@ -169,8 +169,8 @@ class register extends Component {
             <TextInput
               style={styles.input}
               ref={input => {
-              this.usernameTextInput = input;
-            }}
+                this.usernameTextInput = input;
+              }}
               placeholder="Username"
               onChangeText={val => this.onChangeText('username', val)}>
               {this.state.username}
